@@ -9,7 +9,7 @@ const PlantCard = ({ plant }) => {
 
     const handleAddToCart = () => {
         if (!isInCart) {
-            dispatch(cartActions.addToCart(plant));
+            dispatch(cartActions.addItem(plant));
         }
     };
 
@@ -41,8 +41,8 @@ const PlantCard = ({ plant }) => {
                     onClick={handleAddToCart}
                     disabled={isInCart}
                     className={`mt-auto w-full py-2.5 rounded-lg font-semibold transition-all shadow-sm ${isInCart
-                            ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
-                            : 'bg-primary-600 text-white hover:bg-primary-700 active:scale-[0.98]'
+                        ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
+                        : 'bg-primary-600 text-white hover:bg-primary-700 active:scale-[0.98]'
                         }`}
                 >
                     {isInCart ? 'Added to Cart' : 'Add to Cart'}

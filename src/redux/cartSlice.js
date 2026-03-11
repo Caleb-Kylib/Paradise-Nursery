@@ -10,7 +10,7 @@ const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
-        addToCart(state, action) {
+        addItem(state, action) {
             const newItem = action.payload;
             const existingItem = state.items.find((item) => item.id === newItem.id);
 
@@ -27,7 +27,7 @@ const cartSlice = createSlice({
             state.totalQuantity++;
             state.totalAmount += newItem.price;
         },
-        removeFromCart(state, action) {
+        removeItem(state, action) {
             const id = action.payload;
             const existingItem = state.items.find((item) => item.id === id);
 
@@ -37,45 +37,26 @@ const cartSlice = createSlice({
                 state.items = state.items.filter((item) => item.id !== id);
             }
         },
-        increaseQuantity(state, action) {
-            const id = action.payload;
+        updateQuantity(state, action) {
+            const { id, quantity } = action.payload;
             const existingItem = state.items.find((item) => item.id === id);
-            if (existingItem) {
-                existingItem.quantity++;
-                existingItem.totalPrice += existingItem.price;
-                state.totalQuantity++;
-                state.totalAmount += existingItem.price;
+
+            if (existingItem && quantity >= 0) {
+                const quantityDiff = quantity - existingItem.quantity;
+                existingItem.quantity = quantity;
+                existingItem.totalPrice = existingItem.price * quantity;
+
+                state.totalQuantity += quantityDiff;
+                state.totalAmount += (quantityDiff * existingItem.price);
+
+                if (existingItem.quantity === 0) {
+                    state.items = state.items.filter(item => item.id !== id);
+                }
             }
-        },
-        decreaseQuantity(state, action) {
-            const id = action.payload;
-            const existingItem = state.items.find((item) => item.id === id);
-            if (existingItem && existingItem.quantity > 1) {
-                existingItem.quantity--;
-                existingItem.totalPrice -= existingItem.price;
-                state.totalQuantity--;
-                state.totalAmount -= existingItem.price;
-            } else if (existingItem && existingItem.quantity === 1) {
-                // Optional: Remove if quantity goes to 0
-                state.items = state.items.filter((item) => item.id !== id);
-                state.totalQuantity--;
-                state.totalAmount -= existingItem.price;
-            }
-        },
-        calculateTotals(state) {
-            // Redux state is usually updated in each action, 
-            // but this could be used for re-calculating if needed.
-            let quantity = 0;
-            let total = 0;
-            state.items.forEach(item => {
-                quantity += item.quantity;
-                total += item.totalPrice;
-            });
-            state.totalQuantity = quantity;
-            state.totalAmount = total;
         }
     },
 });
+
 
 export const cartActions = cartSlice.actions;
 export default cartSlice.reducer;
