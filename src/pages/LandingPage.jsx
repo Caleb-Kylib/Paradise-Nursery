@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../App.css';
 
 const LandingPage = () => {
     const navigate = useNavigate();
@@ -8,10 +9,7 @@ const LandingPage = () => {
         <div className="relative h-screen w-full flex items-center justify-center overflow-hidden">
             {/* Background Image with Overlay */}
             <div
-                className="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-[10s] scale-110 motion-safe:animate-[pulse_10s_infinite]"
-                style={{
-                    backgroundImage: `url('https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?q=80&w=2000&auto=format&fit=crop')`,
-                }}
+                className="absolute inset-0 z-0 landing-page-bg transition-transform duration-[10s] scale-110 motion-safe:animate-[pulse_10s_infinite]"
             >
                 <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px]"></div>
             </div>
