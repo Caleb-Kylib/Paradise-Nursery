@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ProductsPage from './pages/ProductsPage';
+import ProductList from './ProductList';
 import CartPage from './pages/CartPage';
 import AboutUs from './AboutUs';
 import './App.css';
@@ -68,8 +68,8 @@ const App = () => {
                 ) : (
                     <div className="animate-fade-in">
                         <Routes>
-                            <Route path="/" element={<ProductsPage />} />
-                            <Route path="/products" element={<ProductsPage />} />
+                            <Route path="/" element={<ProductList />} />
+                            <Route path="/products" element={<ProductList />} />
                             <Route path="/cart" element={<CartPage />} />
                         </Routes>
                     </div>
