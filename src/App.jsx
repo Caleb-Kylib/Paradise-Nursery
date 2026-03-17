@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ProductList from './ProductList';
-import CartPage from './pages/CartPage';
+import CartItem from './CartItem';
 import AboutUs from './AboutUs';
 import './App.css';
 
@@ -70,7 +70,7 @@ const App = () => {
                         <Routes>
                             <Route path="/" element={<ProductList />} />
                             <Route path="/products" element={<ProductList />} />
-                            <Route path="/cart" element={<CartPage />} />
+                            <Route path="/cart" element={<CartItem />} />
                         </Routes>
                     </div>
                 )}
