@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../App.css';
+import AboutUs from '../AboutUs';
 
 const LandingPage = () => {
     const navigate = useNavigate();
@@ -43,23 +44,16 @@ const LandingPage = () => {
                 {/* Right Side */}
                 <div className="md:w-1/2 bg-white/10 backdrop-blur-xl p-8 md:p-12 rounded-3xl border border-white/20 shadow-2xl animate-fade-in [animation-delay:200ms]">
                     <h2 className="text-2xl font-bold mb-6 text-primary-300">Our Mission</h2>
-                    <div className="space-y-4 text-gray-100 leading-relaxed text-lg">
-                        <p>
-                            At Paradise Nursery, we believe that every home deserves a touch of paradise. Our curated collection of houseplants is designed to bring life, color, and tranquility to your living space.
-                        </p>
-                        <p>
-                            Whether you're looking for air-purifying giants or delicate fragrant blooms, our mission is to help you cultivate your own indoor sanctuary. Let nature breathe life into your home and join us on a journey to a greener, more serene lifestyle.
-                        </p>
-                        <div className="pt-4 flex gap-4 opacity-80">
-                            <div className="text-center">
-                                <span className="block text-3xl font-bold">50+</span>
-                                <span className="text-xs uppercase">Varieties</span>
-                            </div>
-                            <div className="h-10 w-px bg-white/30 self-center"></div>
-                            <div className="text-center">
-                                <span className="block text-3xl font-bold">10k+</span>
-                                <span className="text-xs uppercase">Happy Customers</span>
-                            </div>
+                    <AboutUs />
+                    <div className="pt-4 flex gap-4 opacity-80">
+                        <div className="text-center">
+                            <span className="block text-3xl font-bold">50+</span>
+                            <span className="text-xs uppercase">Varieties</span>
+                        </div>
+                        <div className="h-10 w-px bg-white/30 self-center"></div>
+                        <div className="text-center">
+                            <span className="block text-3xl font-bold">10k+</span>
+                            <span className="text-xs uppercase">Happy Customers</span>
                         </div>
                     </div>
                 </div>

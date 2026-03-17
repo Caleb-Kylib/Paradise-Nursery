@@ -1,0 +1,24 @@
+.about-us-container {
+    padding: 0px;
+    text-align: left;
+    background-color: transparent;
+    border-radius: 8px;
+    margin: 0px;
+}
+
+.about-us-description {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #4ade80;
+    /* primary-400 */
+    margin-bottom: 1.5rem;
+}
+
+.about-us-content {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: #f3f4f6;
+    /* gray-100 */
+    margin-bottom: 1.25rem;
+    max-width: 100%;
+}
